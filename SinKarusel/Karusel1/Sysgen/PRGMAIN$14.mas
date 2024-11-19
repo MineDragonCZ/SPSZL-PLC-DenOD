@@ -1,0 +1,232 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\PRGMAIN.ST'
+
+#defpou prgMain
+  CTU COUNTER_01,
+  bool enabled,
+  bool vyrobekCelist1,
+  bool vyrobekSwitched
+
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\PRGMAIN.ST'
+#pou prgMain
+#srcline 1 ;PROGRAM prgMain
+
+#struct prgMain__temp__
+  dint P0__st__
+P     61
+prgMain_L0:
+ LINK __SizeOf(prgMain__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 10 ;  enabled := polohaKaruseluOK;
+ LD   bool polohaKaruseluOK
+#debug bool polohaKaruseluOK
+ WRX  enabled
+#debug_left bool enabled
+#srcline 11 ;  
+#srcline 12 ;  
+#srcline 13 ;  pulzyMotoru := NOT(pulzyMotoru);
+ LD   bool pulzyMotoru
+#debug bool pulzyMotoru
+ NEG
+ WR   bool pulzyMotoru
+#debug_left bool pulzyMotoru
+#srcline 14 ;  COUNTER_01(CU := (TIMER AND enabled), R := NOT(enabled) OR COUNTER_01.Q, PV := 14);
+ LD   TIMER
+#debug bool TIMER
+ LDX  enabled
+#debug bool enabled
+ AND
+ WRX  COUNTER_01~CU
+#debug_left bool COUNTER_01~CU
+ LDX  enabled
+#debug bool enabled
+ NEG
+ LDX  COUNTER_01~Q
+#debug bool COUNTER_01.Q
+ OR  
+ WRX  COUNTER_01~R
+#debug_left bool COUNTER_01~R
+ LD   int 14
+ WRX  COUNTER_01~PV
+#debug_left int COUNTER_01~PV
+ LEAX COUNTER_01
+ CAL  CTU_L0
+#srcline 16 ;  CASE COUNTER_01.CV OF
+ LDX  COUNTER_01~CV
+#debug int COUNTER_01.CV
+ EXTW 
+ WRY  P0__st__
+ LD   0
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L2
+#srcline 17 ;       0:
+#srcline 18 ;         IF enabled THEN
+ LDX  enabled
+#debug bool enabled
+ JMC  prgMain_L3
+#srcline 19 ;           motorEnable := 0;
+ LD   bool 0       ; false
+ WR   bool motorEnable
+#debug_left bool motorEnable
+#srcline 20 ;         END_IF
+prgMain_L3:
+#srcline 21 ;       ;
+ JMP  prgMain_L1
+prgMain_L2:
+ LD   2
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L5
+#srcline 22 ;       2:
+#srcline 23 ;         motorEnable := 0;
+ LD   bool 0       ; false
+ WR   bool motorEnable
+#debug_left bool motorEnable
+#srcline 24 ;         zvedaniChapadel := 1;
+ LD   bool -1      ; true
+ WR   bool zvedaniChapadel
+#debug_left bool zvedaniChapadel
+#srcline 25 ;         IF NOT(vyrobekSwitched) THEN
+ LDX  vyrobekSwitched
+#debug bool vyrobekSwitched
+ NEG
+ JMC  prgMain_L6
+#srcline 26 ;            vyrobekSwitched := true;
+ LD   bool -1       ; true
+ WRX  vyrobekSwitched
+#debug_left bool vyrobekSwitched
+#srcline 27 ;            vyrobekCelist1 := NOT(vyrobekCelist1);
+ LDX  vyrobekCelist1
+#debug bool vyrobekCelist1
+ NEG
+ WRX  vyrobekCelist1
+#debug_left bool vyrobekCelist1
+#srcline 28 ;         END_IF
+prgMain_L6:
+#srcline 29 ;       ;
+ JMP  prgMain_L1
+prgMain_L5:
+ LD   4
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L8
+#srcline 30 ;       4:
+#srcline 31 ;         celist1 := vyrobekCelist1;
+ LDX  vyrobekCelist1
+#debug bool vyrobekCelist1
+ WR   bool celist1
+#debug_left bool celist1
+#srcline 32 ;         celist2 := NOT(vyrobekCelist1);
+ LDX  vyrobekCelist1
+#debug bool vyrobekCelist1
+ NEG
+ WR   bool celist2
+#debug_left bool celist2
+#srcline 33 ;       ;
+ JMP  prgMain_L1
+prgMain_L8:
+ LD   5
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L9
+#srcline 34 ;       5:
+#srcline 35 ;         zvedaniChapadel := 0;
+ LD   bool 0       ; false
+ WR   bool zvedaniChapadel
+#debug_left bool zvedaniChapadel
+#srcline 36 ;       ;
+ JMP  prgMain_L1
+prgMain_L9:
+ LD   7
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L10
+#srcline 37 ;       7:
+#srcline 38 ;         vyrobekSwitched := false;
+ LD   bool 0       ; false
+ WRX  vyrobekSwitched
+#debug_left bool vyrobekSwitched
+#srcline 39 ;         otacebiChapadel := vyrobekCelist1;
+ LDX  vyrobekCelist1
+#debug bool vyrobekCelist1
+ WR   bool otacebiChapadel
+#debug_left bool otacebiChapadel
+#srcline 40 ;       ;
+ JMP  prgMain_L1
+prgMain_L10:
+ LD   9
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L11
+#srcline 41 ;       9:
+#srcline 42 ;         zvedaniChapadel := 1;
+ LD   bool -1      ; true
+ WR   bool zvedaniChapadel
+#debug_left bool zvedaniChapadel
+#srcline 43 ;       ;
+ JMP  prgMain_L1
+prgMain_L11:
+ LD   10
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L12
+#srcline 44 ;       10:
+#srcline 45 ;         celist2 := vyrobekCelist1;
+ LDX  vyrobekCelist1
+#debug bool vyrobekCelist1
+ WR   bool celist2
+#debug_left bool celist2
+#srcline 46 ;         celist1 := NOT(vyrobekCelist1);
+ LDX  vyrobekCelist1
+#debug bool vyrobekCelist1
+ NEG
+ WR   bool celist1
+#debug_left bool celist1
+#srcline 47 ;       ;
+ JMP  prgMain_L1
+prgMain_L12:
+ LD   12
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L13
+#srcline 48 ;       12:
+#srcline 49 ;         zvedaniChapadel := 0;
+ LD   bool 0       ; false
+ WR   bool zvedaniChapadel
+#debug_left bool zvedaniChapadel
+#srcline 50 ;         motorEnable := true;
+ LD   bool -1       ; true
+ WR   bool motorEnable
+#debug_left bool motorEnable
+#srcline 51 ;       ;
+ JMP  prgMain_L1
+prgMain_L13:
+prgMain_L1:
+#srcline 55 ;END_PROGRAM
+ ULNK
+RET
+E     61
+
+; Initialize - variables
+P     61
+prgMain__InstanceInit__:
+ LINK 0
+ LD   bool 0   ; false
+ WRX  enabled
+ LD   bool 0   ; false
+ WRX  vyrobekCelist1
+ LD   bool 0   ; false
+ WRX  vyrobekSwitched
+ ULNK
+RET
+E     61
+; End initialize - variables
+#endpou 
+
+
+
+ 
+
+#srcfile ''

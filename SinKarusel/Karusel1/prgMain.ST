@@ -1,0 +1,60 @@
+PROGRAM prgMain
+  VAR
+     COUNTER_01 : CTU;
+     enabled : BOOL := false;
+     
+     vyrobekCelist1 : BOOL := false;
+     vyrobekSwitched : BOOL := false;
+  END_VAR
+
+  enabled := polohaKaruseluOK;
+  
+  
+  pulzyMotoru := NOT(pulzyMotoru);
+  COUNTER_01(CU := (TIMER AND enabled), R := NOT(enabled) OR COUNTER_01.Q, PV := 14);
+
+  CASE COUNTER_01.CV OF
+       0:
+         IF enabled THEN
+           motorEnable := 0;
+         END_IF
+       ;
+       1:
+         motorEnable := 0;
+         celist1 := vyrobekCelist1;
+         celist2 := NOT(vyrobekCelist1);
+       ;
+       2:
+         zvedaniChapadel := 1;
+         IF NOT(vyrobekSwitched) THEN
+            vyrobekSwitched := true;
+            vyrobekCelist1 := NOT(vyrobekCelist1);
+         END_IF
+       ;
+       4:
+         celist1 := vyrobekCelist1;
+         celist2 := NOT(vyrobekCelist1);
+       ;
+       5:
+         zvedaniChapadel := 0;
+       ;
+       7:
+         vyrobekSwitched := false;
+         otacebiChapadel := vyrobekCelist1;
+       ;
+       9:
+         zvedaniChapadel := 1;
+       ;
+       10:
+         celist2 := vyrobekCelist1;
+         celist1 := NOT(vyrobekCelist1);
+       ;
+       12:
+         zvedaniChapadel := 0;
+         motorEnable := true;
+       ;
+
+  END_CASE;
+
+END_PROGRAM
+

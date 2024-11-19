@@ -1,0 +1,5 @@
+
+VAR_GLOBAL
+  TIMER AT %S13.2 : BOOL;
+END_VAR
+

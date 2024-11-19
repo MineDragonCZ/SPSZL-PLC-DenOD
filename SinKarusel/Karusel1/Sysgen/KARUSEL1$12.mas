@@ -1,0 +1,11 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\KARUSEL1.ST'
+
+; Global variables
+#def  TIMER bool %S13.2
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\KARUSEL1.ST'
+
+
+ 
+
+#srcfile ''
