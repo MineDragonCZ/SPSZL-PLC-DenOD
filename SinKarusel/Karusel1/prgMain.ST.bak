@@ -1,30 +1,21 @@
 PROGRAM prgMain
   VAR
-     COUNTER_01 : CTU;
-     enabled : BOOL := false;
+     COUNTER_CELISTI : CTU;
+     COUNTER_KARUSEL : CTU;
      
+     runKarusel : BOOL := true;
+     runCelisti : BOOL := false;
+
      vyrobekCelist1 : BOOL := false;
      vyrobekSwitched : BOOL := false;
   END_VAR
-
-  enabled := polohaKaruseluOK;
-  
-  
   pulzyMotoru := NOT(pulzyMotoru);
-  COUNTER_01(CU := (TIMER AND enabled), R := NOT(enabled) OR COUNTER_01.Q, PV := 14);
+  
+  COUNTER_CELISTI(CU := (TIMER AND runCelisti), R := NOT(runCelisti) OR COUNTER_CELISTI.Q, PV := 8);
+  COUNTER_KARUSEL(CU := (TIMER AND runKarusel AND polohaKaruseluOK), R := NOT(runKarusel) OR NOT(polohaKaruseluOK) OR COUNTER_KARUSEL.Q, PV := 13);
 
-  CASE COUNTER_01.CV OF
-       0:
-         IF enabled THEN
-           motorEnable := 0;
-         END_IF
-       ;
-       1:
-         celist1 := vyrobekCelist1;
-         celist2 := NOT(vyrobekCelist1);
-       ;
+  CASE COUNTER_CELISTI.CV OF
        2:
-         motorEnable := 0;
          zvedaniChapadel := 1;
          IF NOT(vyrobekSwitched) THEN
             vyrobekSwitched := true;
@@ -41,20 +32,29 @@ PROGRAM prgMain
        7:
          vyrobekSwitched := false;
          otacebiChapadel := vyrobekCelist1;
+         runKarusel := true;
+         runCelisti := false;
        ;
-       9:
-         zvedaniChapadel := 1;
-       ;
-       10:
-         celist2 := vyrobekCelist1;
-         celist1 := NOT(vyrobekCelist1);
+  END_CASE;
+
+
+  CASE COUNTER_KARUSEL.CV OF
+       1:
+         zarazka := true;
+         motorEnable := false;
+         stroj1HoreDole := true;
+         stroj2HoreDole := true;
+         runCelisti := true;
        ;
        12:
-         zvedaniChapadel := 0;
+         stroj1HoreDole := false;
+         stroj2HoreDole := false;
+         zarazka := false;
          motorEnable := true;
        ;
-
   END_CASE;
+  
+  
 
 END_PROGRAM
 

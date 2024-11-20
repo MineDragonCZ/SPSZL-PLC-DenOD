@@ -1,0 +1,23 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\PRGCFC.CFC'
+
+#defpou prgCFC
+  byte dummy
+
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\PRGCFC.CFC'
+#pou prgCFC
+#srcline 1 ;PROGRAM prgCFC
+P     61
+prgCFC_L0:
+ LINK 0
+#srcline 26 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

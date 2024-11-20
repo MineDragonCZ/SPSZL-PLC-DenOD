@@ -8,7 +8,7 @@ bankname="Bank1"
 shortcut=1
 watchcnt=1
 bindfile=""
-watchobjEx0=0,"Main.enabled|"
-watchobj0="Main.enabled",1,0,0,""
+watchobjEx0=0,"Main.runCelisti|"
+watchobj0="Main.runCelisti",1,0,0,""
 [/Watch2Bank0]
 
