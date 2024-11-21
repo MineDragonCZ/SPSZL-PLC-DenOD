@@ -1,0 +1,16 @@
+PROGRAM prgMain
+  VAR
+  END_VAR
+  
+  IF sensorA THEN
+     motorA := true;
+     motorB := false;
+  END_IF
+
+  IF sensorB THEN
+     motorB := true;
+     motorA := false;
+  END_IF
+
+END_PROGRAM
+
