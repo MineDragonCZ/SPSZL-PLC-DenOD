@@ -3,5 +3,6 @@ CONFIGURATION Karusel1
     TASK FreeWheeling(Number := 0);
     PROGRAM Main WITH FreeWheeling : prgMain ();
     PROGRAM CFC WITH FreeWheeling : prgCFC ();
+    PROGRAM Pas WITH FreeWheeling : prgPas ();
   END_RESOURCE
 END_CONFIGURATION

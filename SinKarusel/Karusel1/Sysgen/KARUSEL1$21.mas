@@ -1,0 +1,40 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\KARUSEL1.MCF'
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\KARUSEL1.MCF'
+
+; ***** RESOURCE - CPM
+#reg prgMain Main
+#srcline 4 ;    PROGRAM Main WITH FreeWheeling : prgMain ();
+P     0
+ LEA  Main
+ CAL  prgMain_L0
+E     0
+
+; Initialize - program
+P     58
+ LEA  Main
+ CAL  prgMain__InstanceInit__
+E     58
+
+; ***** RESOURCE - CPM
+#reg prgCFC CFC
+#srcline 5 ;    PROGRAM CFC WITH FreeWheeling : prgCFC ();
+P     0
+ LEA  CFC
+ CAL  prgCFC_L0
+E     0
+
+
+; ***** RESOURCE - CPM
+#reg prgPas Pas
+#srcline 6 ;    PROGRAM Pas WITH FreeWheeling : prgPas ();
+P     0
+ LEA  Pas
+ CAL  prgPas_L0
+E     0
+
+
+
+ 
+
+#srcfile ''

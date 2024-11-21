@@ -190,14 +190,8 @@ prgMain_L1:
  LD   bool 0       ; false
  WR   bool motorEnable
 #debug_left bool motorEnable
-#srcline 46 ;         stroj1HoreDole := true;
- LD   bool -1       ; true
- WR   bool stroj1HoreDole
-#debug_left bool stroj1HoreDole
-#srcline 47 ;         stroj2HoreDole := true;
- LD   bool -1       ; true
- WR   bool stroj2HoreDole
-#debug_left bool stroj2HoreDole
+#srcline 46 ;         //stroj1HoreDole := true;
+#srcline 47 ;         //stroj2HoreDole := true;
 #srcline 48 ;         runCelisti := true;
  LD   bool -1       ; true
  WRX  runCelisti
@@ -205,34 +199,58 @@ prgMain_L1:
 #srcline 49 ;       ;
  JMP  prgMain_L8
 prgMain_L9:
- LD   12
+ LD   2
  LDY  P1__st__
  EQ  
  JMC  prgMain_L10
-#srcline 50 ;       12:
-#srcline 51 ;         stroj1HoreDole := false;
+#srcline 50 ;       2:
+#srcline 51 ;         vyhod := true;
+ LD   bool -1       ; true
+ WR   bool vyhod
+#debug_left bool vyhod
+#srcline 52 ;       ;
+ JMP  prgMain_L8
+prgMain_L10:
+ LD   7
+ LDY  P1__st__
+ EQ  
+ JMC  prgMain_L11
+#srcline 53 ;       7:
+#srcline 54 ;         vyhod := false;
+ LD   bool 0       ; false
+ WR   bool vyhod
+#debug_left bool vyhod
+#srcline 55 ;       ;
+ JMP  prgMain_L8
+prgMain_L11:
+ LD   9
+ LDY  P1__st__
+ EQ  
+ JMC  prgMain_L12
+#srcline 56 ;       9:
+#srcline 57 ;         stroj1HoreDole := false;
  LD   bool 0       ; false
  WR   bool stroj1HoreDole
 #debug_left bool stroj1HoreDole
-#srcline 52 ;         stroj2HoreDole := false;
+#srcline 58 ;         stroj2HoreDole := false;
  LD   bool 0       ; false
  WR   bool stroj2HoreDole
 #debug_left bool stroj2HoreDole
-#srcline 53 ;         zarazka := false;
+#srcline 59 ;         zarazka := false;
  LD   bool 0       ; false
  WR   bool zarazka
 #debug_left bool zarazka
-#srcline 54 ;         motorEnable := true;
+#srcline 60 ;         motorEnable := true;
  LD   bool -1       ; true
  WR   bool motorEnable
 #debug_left bool motorEnable
-#srcline 55 ;       ;
+#srcline 61 ;       ;
  JMP  prgMain_L8
-prgMain_L10:
+prgMain_L12:
 prgMain_L8:
-#srcline 57 ;  
-#srcline 58 ;  
-#srcline 60 ;END_PROGRAM
+#srcline 63 ;  
+#srcline 64 ;  
+#srcline 66 ;END_PROGRAM
  ULNK
 RET
 E     61

@@ -1,0 +1,23 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\PRGPAS.ST'
+
+#defpou prgPas
+  byte dummy
+
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINKARUSEL\KARUSEL1\PRGPAS.ST'
+#pou prgPas
+#srcline 1 ;PROGRAM prgPas
+P     61
+prgPas_L0:
+ LINK 0
+#srcline 5 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

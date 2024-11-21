@@ -1,0 +1,8 @@
+PROGRAM prgMain
+  VAR
+  END_VAR
+  
+  //pojezd := NOT(vyrobekPodChnap);
+
+END_PROGRAM
+

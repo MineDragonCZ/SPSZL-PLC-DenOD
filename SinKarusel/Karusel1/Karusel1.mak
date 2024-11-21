@@ -33,4 +33,5 @@
 #usefile "prgMain.ST"
 #usefile "PanelMaker\OI1073.mos", 'auto'
 #usefile "prgCFC.CFC"
+#usefile "prgPas.ST"
 #usefile "Karusel1.mcf", 'auto'

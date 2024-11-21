@@ -16,6 +16,7 @@ PROGRAM prgMain
 
   CASE COUNTER_CELISTI.CV OF
        2:
+         motorEnable := false;
          zvedaniChapadel := 1;
          IF NOT(vyrobekSwitched) THEN
             vyrobekSwitched := true;
@@ -23,7 +24,7 @@ PROGRAM prgMain
          END_IF
        ;
        4:
-         celist1 := vyrobekCelist1;
+         //celist1 := vyrobekCelist1;
          celist2 := NOT(vyrobekCelist1);
        ;
        5:
@@ -46,7 +47,13 @@ PROGRAM prgMain
          stroj2HoreDole := true;
          runCelisti := true;
        ;
-       12:
+       2:
+         vyhod := true;
+       ;
+       7:
+         vyhod := false;
+       ;
+       9:
          stroj1HoreDole := false;
          stroj2HoreDole := false;
          zarazka := false;

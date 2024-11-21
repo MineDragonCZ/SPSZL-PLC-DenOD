@@ -43,11 +43,17 @@ PROGRAM prgMain
        1:
          zarazka := true;
          motorEnable := false;
-         stroj1HoreDole := true;
-         stroj2HoreDole := true;
+         //stroj1HoreDole := true;
+         //stroj2HoreDole := true;
          runCelisti := true;
        ;
-       12:
+       2:
+         vyhod := true;
+       ;
+       7:
+         vyhod := false;
+       ;
+       9:
          stroj1HoreDole := false;
          stroj2HoreDole := false;
          zarazka := false;

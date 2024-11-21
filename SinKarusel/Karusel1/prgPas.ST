@@ -1,0 +1,6 @@
+PROGRAM prgPas
+  VAR
+  END_VAR
+
+END_PROGRAM
+

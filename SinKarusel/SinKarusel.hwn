@@ -4,10 +4,17 @@
 ;**********************************************************************
 ;**********************************************************************
 #def _KARUSEL1	0
+#def _KARUSELPAS1	1
 #if _ProgName_ == _KARUSEL1
   #def _ProgName__KARUSEL1 1
 #else
   #def _ProgName__KARUSEL1 0
+#endif
+
+#if _ProgName_ == _KARUSELPAS1
+  #def _ProgName__KARUSELPAS1 1
+#else
+  #def _ProgName__KARUSELPAS1 0
 #endif
 
 

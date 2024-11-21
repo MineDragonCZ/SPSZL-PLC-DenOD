@@ -1,0 +1,7 @@
+1;1;|0;|;|0;DO.DO5;zastaveniVyrobku;
+1;1;|0;|;|0;DO.DO4;pojezd;
+1;1;|0;|;|0;DO.DO7;vyhozeniVyrobku;
+1;1;|0;|;|0;DO.DO10;kontrola;
+1;0;|0;|;|0;DI.DI11;impulzyPasu;
+1;0;|0;|;|0;DI.DI10;vyrobekPodChnap;
+1;0;|0;|;|0;DI.DI9;kontrolaVyrobkuOK;
