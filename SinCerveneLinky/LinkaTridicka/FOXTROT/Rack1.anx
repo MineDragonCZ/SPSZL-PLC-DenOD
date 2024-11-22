@@ -1,0 +1,11 @@
+1;0;|0;|;|0;DI.DI6;sensor2;
+1;0;|0;|;|0;DI.DI5;sensor1;
+1;0;|0;|;|0;DI.DI4;pasPulzy;
+1;1;|0;|;|0;DO.DO5;vzduch2;
+1;1;|0;|;|0;DO.DO8;kompresor;
+1;1;|0;|;|0;DO.DO9;pohon;
+1;0;|0;|;|0;DI.DI9;konc1;
+1;0;|0;|;|0;DI.DI10;konc2;
+1;0;|0;|;|0;DI.DI11;konc3;
+1;1;|0;|;|0;DO.DO4;vzduch3;
+1;1;|0;|;|0;DO.DO6;vzduch1;

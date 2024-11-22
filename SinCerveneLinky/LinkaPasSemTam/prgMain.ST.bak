@@ -2,6 +2,10 @@ PROGRAM prgMain
   VAR
   END_VAR
   
+  (*
+  TODO: define varibles in global scope as INPUTS/OUTPUTS of the PLC
+  *)
+  
   IF sensorA THEN
      motorA := true;
      motorB := false;

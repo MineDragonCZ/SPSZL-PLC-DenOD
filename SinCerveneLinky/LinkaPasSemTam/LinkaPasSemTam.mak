@@ -23,11 +23,13 @@
 #endlibs
 
 ;**************************************
+#usefile "PanelMaker\DeklarPT.mos", 'auto'
+#usefile "Sysgen\CIBMaker.st", 'auto'
 #usefile "SysGen\HWConfig.ST", 'auto'
+#usefile "Sysgen\CIBMaker.mos", 'auto'
 #usefile "SysGen\LinkaPasSemTam.hwc", 'auto'
 #usefile "..\SinCerveneLinky.hwn", 'auto'
-#usefile "Sysgen\CIBMaker.mos", 'auto'
-#usefile "Sysgen\CIBMaker.st", 'auto'
 #usefile "LINKAPASSEMTAM.ST"
 #usefile "prgMain.ST"
+#usefile "PanelMaker\OI1073.mos", 'auto'
 #usefile "LinkaPasSemTam.mcf", 'auto'

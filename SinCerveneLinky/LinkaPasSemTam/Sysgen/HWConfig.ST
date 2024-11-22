@@ -5,7 +5,7 @@
 (* ********************************************************************** *)
 VAR_GLOBAL CONSTANT
   CPU_TYPE   : USINT := 75;
-  CPU_CODE   : UINT  := 1004;
+  CPU_CODE   : UINT  := 1014;
 END_VAR
 
 TYPE
@@ -53,6 +53,28 @@ TYPE
     DIP3  : BOOL;
   END_STRUCT;
 
+  TBIN_4DIPW : STRUCT
+    DIP0  : BOOL;
+    DIP1  : BOOL;
+    DIP2  : BOOL;
+    DIP3  : BOOL;
+  END_STRUCT;
+
+  TBIN_12DI : STRUCT
+    DI0  : BOOL;
+    DI1  : BOOL;
+    DI2  : BOOL;
+    DI3  : BOOL;
+    DI4  : BOOL;
+    DI5  : BOOL;
+    DI6  : BOOL;
+    DI7  : BOOL;
+    DI8  : BOOL;
+    DI9  : BOOL;
+    DI10  : BOOL;
+    DI11  : BOOL;
+  END_STRUCT;
+
   TCNTF_IN : STRUCT
     SCNT : UINT;
     VALA : UDINT;
@@ -73,14 +95,22 @@ TYPE
     DO5  : BOOL;
   END_STRUCT;
 
-  TCHStatistic : STRUCT
-    STAT       : USINT;
-    ERR        : USINT;
-    trueMes    : UDINT;
-    falseMes   : UDINT;
+  TBIN_12DO : STRUCT
+    DO0  : BOOL;
+    DO1  : BOOL;
+    DO2  : BOOL;
+    DO3  : BOOL;
+    DO4  : BOOL;
+    DO5  : BOOL;
+    DO6  : BOOL;
+    DO7  : BOOL;
+    DO8  : BOOL;
+    DO9  : BOOL;
+    DO10  : BOOL;
+    DO11  : BOOL;
   END_STRUCT;
 
-  TETHStatistic_BACnet : STRUCT
+  TCHStatistic : STRUCT
     STAT       : USINT;
     ERR        : USINT;
     trueMes    : UDINT;
@@ -94,10 +124,16 @@ TYPE
 END_TYPE
 (* ********************************************************************** *)
 (* ---------------------------------------------------------------------- *)
-(* CP-1004 *)
+(* CP-1014 *)
 VAR_GLOBAL
   r0_p0_Statistic_CH1  AT %X7500 : TCHStatistic;
   r0_p0_Control_CH1    AT %Y7500 : TCHControl;
+END_VAR
+(* ---------------------------------------------------------------------- *)
+(* OI-1073 *)
+VAR_GLOBAL
+  OI1073_Keyb          : USINT;
+  OI1073_VideoRam      : ARRAY [0..79] OF USINT;
 END_VAR
 (* ---------------------------------------------------------------------- *)
 (* MI2-01M *)
@@ -120,6 +156,28 @@ VAR_GLOBAL
   r0_p3_dummy          AT %Y3   : USINT;
   r0_p3_CNT_OUT1       AT %Y4   : TCNTF_OUT;
   r0_p3_CNT_OUT2       AT %Y10  : TCNTF_OUT;
+END_VAR
+(* ********************************************************************** *)
+(* ---------------------------------------------------------------------- *)
+(* IB-1301 *)
+VAR_GLOBAL
+  r1_p0_DI             AT %X100 : TBIN_12DI;
+  r1_p0_DIPW           AT %X102 : TBIN_4DIPW;
+  r1_p0_CNT_IN1        AT %X104 : TCNTF_IN;
+  r1_p0_CNT_IN2        AT %X114 : TCNTF_IN;
+  r1_p0_CNT_OUT1       AT %Y20  : TCNTF_OUT;
+  r1_p0_CNT_OUT2       AT %Y26  : TCNTF_OUT;
+(* alias *)
+  sensorA              AT r1_p0_DI.DI1;
+  sensorB              AT r1_p0_DI.DI2;
+END_VAR
+(* ---------------------------------------------------------------------- *)
+(* OS-1401 *)
+VAR_GLOBAL
+  r1_p1_DO             AT %Y32  : TBIN_12DO;
+(* alias *)
+  motorA               AT r1_p1_DO.DO0;
+  motorB               AT r1_p1_DO.DO1;
 END_VAR
 (* -- *)
 (* -- *)

@@ -1,0 +1,4 @@
+1;0;|0;|;|0;DI.DI1;sensorA;
+1;0;|0;|;|0;DI.DI2;sensorB;
+1;1;|0;|;|0;DO.DO0;motorA;
+1;1;|0;|;|0;DO.DO1;motorB;

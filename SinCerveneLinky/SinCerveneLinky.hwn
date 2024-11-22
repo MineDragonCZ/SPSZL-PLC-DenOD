@@ -4,10 +4,17 @@
 ;**********************************************************************
 ;**********************************************************************
 #def _LINKAPASSEMTAM	0
+#def _LINKATRIDICKA	1
 #if _ProgName_ == _LINKAPASSEMTAM
   #def _ProgName__LINKAPASSEMTAM 1
 #else
   #def _ProgName__LINKAPASSEMTAM 0
+#endif
+
+#if _ProgName_ == _LINKATRIDICKA
+  #def _ProgName__LINKATRIDICKA 1
+#else
+  #def _ProgName__LINKATRIDICKA 0
 #endif
 
 

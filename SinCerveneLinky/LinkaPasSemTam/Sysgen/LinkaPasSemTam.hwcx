@@ -270,12 +270,13 @@ CH252=9
 CH253=9
 CH254=9
 CH255=9
+ETH1_log=1
+ETH0=1
 CH1_log=1
 CH2_log=2
 CH3_log=3
 CH4_log=4
-ETH1_log=1
-ETH0=1
 
 [PanelSIM]
-ActiveSetupPanelSim1=;;3;-1;3;-1;;;;;;;32;1;0;2;0;0;100;260;0;0;1
+ActiveSetupPanelSim1=OI1073_VideoRam;OI1073_SimKey;3;1;3;-1;;;;;;;80;5;0;2;0;0;100;260;0;0;1
+

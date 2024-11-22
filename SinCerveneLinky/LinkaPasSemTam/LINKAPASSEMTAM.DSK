@@ -3,10 +3,10 @@ Version="xPRO","4.3.00"
 [/desktop]
 
 [dockinfo]
-centralpc=55757792,0,0,0
-leftpane=55751372,0,1,1,167,1
-bottompane=55721104,0,209
-rightpane=55723348,0,167,0
+centralpc=56410596,1,0,0
+leftpane=56406072,0,1,1,167,1
+bottompane=56361000,1,209
+rightpane=56363164,0,167,0
 [/dockinfo]
 
 [closedtextpaneleditors]
@@ -100,18 +100,19 @@ showdetails=1
 
 [prjmngr]
 shownds=0
+nodeplus="PlcHw"
 [/prjmngr]
 
 [msgwin2]
-window=55721104,1,0,0,179,1741,39,1276,179,1276,0,0,1
+window=56361000,1,0,0,179,1357,39,653,179,1276,0,0,1
 [/msgwin2]
 
 [msgwin1]
-window=55721104,1,0,0,179,1741,39,1276,179,1276,0,0,0
+window=56361000,1,0,0,179,1357,39,653,179,1276,0,0,0
 [/msgwin1]
 
 [breakswin]
-window=55721104,1,0,0,179,1741,39,1276,179,1276,0,0,2
+window=56361000,1,0,0,179,1357,39,653,179,1276,0,0,2
 hdrwidth0=200
 hdrwidth1=30
 hdrwidth2=80
@@ -149,7 +150,7 @@ font="Courier New",1,0,10,-13,-2147483640,0,0
 [/memwin2]
 
 [watch2win]
-window=55721104,1,0,0,179,1741,39,1276,179,1276,0,0,3
+window=56361000,1,0,0,179,1357,39,653,179,1276,0,0,3
 hdrnamew=240,60,0
 font="Courier New",10
 hiresreadability=0
@@ -170,44 +171,51 @@ lastfile=""
 listwidth=121
 findhistory=""
 replacehistory=""
-window=0,0,234,234,753,1440,753,1440,753,1440,0,0,-1
+window=0,0,112,79,753,1440,112,79,753,1440,0,0,-1
 [/weblc]
 
 [evalmodifdlg]
 [/evalmodifdlg]
 
 [paneltexted]
-editor="XClip-Panel",1,0,1,1,1,1,5149714,1693968,95995308,1694360,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+editor="XClip-Panel",1,0,1,1,1,1,5149714,1699136,218711468,1699528,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 window=0,0,0,94,313,483,313,483,313,483,0,0,-1
 font="Lucida Console",11
 [/paneltexted]
 
 [ctrlswin]
-window=55751372,1,0,0,918,159,948,42,948,159,0,0,0
+window=56406072,1,0,0,702,159,948,159,832,159,0,0,0
 [/ctrlswin]
 
 [prjfileswin]
-window=55751372,1,0,0,918,159,948,640,948,159,0,0,1
+window=56406072,1,0,0,702,159,948,159,832,159,0,0,1
 filesheight=409
-relatedheight=434
-relatedcnt=0
+relatedheight=218
+relatedcnt=3
+relfile0="Sysgen\LinkaPasSemTam.map"
+relfile1="SendRoot\iFoxtrot.pub"
+relfile2="SendRoot\TecoApi.pub"
 [/prjfileswin]
 
 [Datalogger]
-window=55757792,0,0,0,705,1741,735,1749,735,1749,0,0,0
+window=56410596,0,0,0,532,1357,532,97,735,1552,0,0,0
 [/Datalogger]
 
 [CFC_Editors]
 [/CFC_Editors]
 
 [PanelSIM_1]
-window=0,0,0,0,519,392,519,392,519,392,0,0,-1
+window=0,0,0,0,196,352,519,313,519,392,0,0,-1
 [/PanelSIM_1]
+
+[FormRegMngr1]
+window=0,0,695,273,317,233,317,233,317,233,0,0,-1
+[/FormRegMngr1]
 
 [PlcNetManager]
 SortItems=1
 SortPlcs=1
-window=55751372,0,0,0,918,159,948,167,948,159,0,0,4
+window=56406072,0,0,0,702,159,732,167,832,159,0,0,4
 [/PlcNetManager]
 
 [SelectPLC]
@@ -215,8 +223,8 @@ IOSetupColW="200,190,72,72,72,72,64,140,"
 [/SelectPLC]
 
 [textsyneditor]
-editor="prgMain.ST",1,1,0,17,91,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
-window=55757792,1,0,0,918,1741,948,1749,948,1749,0,0,1
+editor="prgMain.ST",1,1,0,3,101,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
+window=56410596,1,0,0,489,1357,732,1536,832,1552,0,0,1
 localparams=0,1,1,1,1,30,0,80,1,2,1,0,0
 font="Courier New",10
 relay=0,0,0,0,0,"",0,0

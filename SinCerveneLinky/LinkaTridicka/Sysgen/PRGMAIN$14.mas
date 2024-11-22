@@ -1,0 +1,199 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINCERVENELINKY\LINKATRIDICKA\PRGMAIN.ST'
+
+#defpou prgMain
+  TON OFF_DELAY,
+  CTU MOVEMENT_COUNTER,
+  TON VZDUCH_RESET_DELAY,
+  bool vyrobekProsel
+
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINCERVENELINKY\LINKATRIDICKA\PRGMAIN.ST'
+#pou prgMain
+#srcline 1 ;PROGRAM prgMain
+
+#struct prgMain__temp__
+  dint P0__st__
+P     61
+prgMain_L0:
+ LINK __SizeOf(prgMain__temp__)
+; Initialize - dynamic variables
+; End initialize - dynamic variables
+#srcline 13 ;  OFF_DELAY(IN := sensor1, PT := t#10s);
+ LD   bool sensor1
+#debug bool sensor1
+ WRX  OFF_DELAY~IN
+#debug_left bool OFF_DELAY~IN
+ LD   time 10000
+ WRX  OFF_DELAY~PT
+#debug_left time OFF_DELAY~PT
+ LEAX OFF_DELAY
+ CAL  TON_L0
+#srcline 14 ;  pohon := NOT(OFF_DELAY.Q);
+ LDX  OFF_DELAY~Q
+#debug bool OFF_DELAY.Q
+ NEG
+ WR   bool pohon
+#debug_left bool pohon
+#srcline 15 ;  kompresor := NOT(OFF_DELAY.Q);
+ LDX  OFF_DELAY~Q
+#debug bool OFF_DELAY.Q
+ NEG
+ WR   bool kompresor
+#debug_left bool kompresor
+#srcline 16 ;  
+#srcline 17 ;  MOVEMENT_COUNTER(CU := pasPulzy, R := NOT(vyrobekProsel), PV := 20);
+ LD   bool pasPulzy
+#debug bool pasPulzy
+ WRX  MOVEMENT_COUNTER~CU
+#debug_left bool MOVEMENT_COUNTER~CU
+ LDX  vyrobekProsel
+#debug bool vyrobekProsel
+ NEG
+ WRX  MOVEMENT_COUNTER~R
+#debug_left bool MOVEMENT_COUNTER~R
+ LD   int 20
+ WRX  MOVEMENT_COUNTER~PV
+#debug_left int MOVEMENT_COUNTER~PV
+ LEAX MOVEMENT_COUNTER
+ CAL  CTU_L0
+#srcline 18 ;  VZDUCH_RESET_DELAY(IN := NOT(vyrobekProsel), PT := t#500ms);
+ LDX  vyrobekProsel
+#debug bool vyrobekProsel
+ NEG
+ WRX  VZDUCH_RESET_DELAY~IN
+#debug_left bool VZDUCH_RESET_DELAY~IN
+ LD   time 500
+ WRX  VZDUCH_RESET_DELAY~PT
+#debug_left time VZDUCH_RESET_DELAY~PT
+ LEAX VZDUCH_RESET_DELAY
+ CAL  TON_L0
+#srcline 19 ;  
+#srcline 20 ;  IF VZDUCH_RESET_DELAY.Q THEN
+ LDX  VZDUCH_RESET_DELAY~Q
+#debug bool VZDUCH_RESET_DELAY.Q
+ JMC  prgMain_L1
+#srcline 21 ;     vzduch1 := false;
+ LD   bool 0       ; false
+ WR   bool vzduch1
+#debug_left bool vzduch1
+#srcline 22 ;     vzduch2 := false;
+ LD   bool 0       ; false
+ WR   bool vzduch2
+#debug_left bool vzduch2
+#srcline 23 ;     vzduch3 := false;
+ LD   bool 0       ; false
+ WR   bool vzduch3
+#debug_left bool vzduch3
+#srcline 24 ;  END_IF
+prgMain_L1:
+#srcline 25 ;  
+#srcline 26 ;  IF NOT sensor2 THEN
+ LD   bool sensor2
+#debug bool sensor2
+ NEG
+ JMC  prgMain_L3
+#srcline 27 ;     vyrobekProsel := true;
+ LD   bool -1       ; true
+ WRX  vyrobekProsel
+#debug_left bool vyrobekProsel
+#srcline 28 ;  END_IF
+prgMain_L3:
+#srcline 29 ;  
+#srcline 30 ;  CASE MOVEMENT_COUNTER.CV OF
+ LDX  MOVEMENT_COUNTER~CV
+#debug int MOVEMENT_COUNTER.CV
+ EXTW 
+ WRY  P0__st__
+ LD   4
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L6
+#srcline 31 ;       4:
+#srcline 32 ;         IF konc1 THEN
+ LD   bool konc1
+#debug bool konc1
+ JMC  prgMain_L7
+#srcline 33 ;            vzduch1 := true;
+ LD   bool -1       ; true
+ WR   bool vzduch1
+#debug_left bool vzduch1
+#srcline 34 ;            vyrobekProsel := false;
+ LD   bool 0       ; false
+ WRX  vyrobekProsel
+#debug_left bool vyrobekProsel
+#srcline 35 ;         END_IF
+prgMain_L7:
+#srcline 36 ;       ;
+ JMP  prgMain_L5
+prgMain_L6:
+ LD   9
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L9
+#srcline 37 ;       9:
+#srcline 38 ;         IF konc2 THEN
+ LD   bool konc2
+#debug bool konc2
+ JMC  prgMain_L10
+#srcline 39 ;            vzduch2 := true;
+ LD   bool -1       ; true
+ WR   bool vzduch2
+#debug_left bool vzduch2
+#srcline 40 ;            vyrobekProsel := false;
+ LD   bool 0       ; false
+ WRX  vyrobekProsel
+#debug_left bool vyrobekProsel
+#srcline 41 ;         END_IF
+prgMain_L10:
+#srcline 42 ;       ;
+ JMP  prgMain_L5
+prgMain_L9:
+ LD   14
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L12
+#srcline 43 ;       14:
+#srcline 44 ;         IF konc3 THEN
+ LD   bool konc3
+#debug bool konc3
+ JMC  prgMain_L13
+#srcline 45 ;            vzduch3 := true;
+ LD   bool -1       ; true
+ WR   bool vzduch3
+#debug_left bool vzduch3
+#srcline 46 ;            vyrobekProsel := false;
+ LD   bool 0       ; false
+ WRX  vyrobekProsel
+#debug_left bool vyrobekProsel
+#srcline 47 ;         END_IF
+prgMain_L13:
+#srcline 48 ;       ;
+ JMP  prgMain_L5
+prgMain_L12:
+ LD   20
+ LDY  P0__st__
+ EQ  
+ JMC  prgMain_L15
+#srcline 49 ;       20:
+#srcline 50 ;           vyrobekProsel := false;
+ LD   bool 0       ; false
+ WRX  vyrobekProsel
+#debug_left bool vyrobekProsel
+#srcline 51 ;       ;
+ JMP  prgMain_L5
+prgMain_L15:
+prgMain_L5:
+#srcline 53 ;  
+#srcline 54 ;  
+#srcline 55 ;  
+#srcline 58 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''
