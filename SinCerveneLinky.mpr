@@ -1,3 +1,4 @@
 [ProjectGroup]
-LinkaPasSemTam\LinkaPasSemTam.plc
-*LinkaTridicka\LinkaTridicka.plc
+*LinkaPasSemTam\LinkaPasSemTam.plc
+LinkaTridicka\LinkaTridicka.plc
+LinkaU\LinkaU.plc

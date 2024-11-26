@@ -13,6 +13,10 @@ PROGRAM prgMain
   
   COUNTER_CELISTI(CU := (TIMER AND runCelisti), R := NOT(runCelisti) OR COUNTER_CELISTI.Q, PV := 8);
   COUNTER_KARUSEL(CU := (TIMER AND runKarusel AND polohaKaruseluOK), R := NOT(runKarusel) OR NOT(polohaKaruseluOK) OR COUNTER_KARUSEL.Q, PV := 13);
+  
+  IF polohaKaruseluOK AND COUNTER_KARUSEL.CV < 2 THEN
+     motorEnable := false;
+  END_IF
 
   CASE COUNTER_CELISTI.CV OF
        2:

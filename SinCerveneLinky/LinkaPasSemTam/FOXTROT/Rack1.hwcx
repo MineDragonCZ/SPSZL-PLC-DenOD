@@ -1,9 +1,9 @@
 [Pos1]
 ModulID=1401
 ModuleName=
-ModuleFileName=
+ModuleFileName=panel_R1_P1
 RemUnit=0
-Verze= 27H0300
+Verze= 23H0300
 ModulFormat=1
 ScriptFormat=1
 XPosE2=0,0|
@@ -13,9 +13,9 @@ ExtendedSizeParam=0
 [Pos0]
 ModulID=1301
 ModuleName=
-ModuleFileName=
+ModuleFileName=panel_R1_P0
 RemUnit=0
-Verze= 27H0300
+Verze= 23H0300
 ModulFormat=1
 ScriptFormat=1
 XPosE2=100,0|

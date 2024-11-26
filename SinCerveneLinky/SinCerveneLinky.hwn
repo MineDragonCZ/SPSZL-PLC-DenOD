@@ -5,6 +5,7 @@
 ;**********************************************************************
 #def _LINKAPASSEMTAM	0
 #def _LINKATRIDICKA	1
+#def _LINKAU	2
 #if _ProgName_ == _LINKAPASSEMTAM
   #def _ProgName__LINKAPASSEMTAM 1
 #else
@@ -15,6 +16,12 @@
   #def _ProgName__LINKATRIDICKA 1
 #else
   #def _ProgName__LINKATRIDICKA 0
+#endif
+
+#if _ProgName_ == _LINKAU
+  #def _ProgName__LINKAU 1
+#else
+  #def _ProgName__LINKAU 0
 #endif
 
 

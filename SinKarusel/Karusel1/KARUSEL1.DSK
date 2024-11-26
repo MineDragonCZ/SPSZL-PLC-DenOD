@@ -3,10 +3,10 @@ Version="xPRO","4.3.00"
 [/desktop]
 
 [dockinfo]
-centralpc=30065428,1,0,0
-leftpane=30063232,0,1,1,167,1
-bottompane=30030248,1,166
-rightpane=30031384,0,167,0
+centralpc=54903572,1,0,0
+leftpane=54901376,0,1,1,167,1
+bottompane=54868392,1,166
+rightpane=54869528,0,167,0
 [/dockinfo]
 
 [closedtextpaneleditors]
@@ -111,15 +111,15 @@ nodeplus="PlcDoc"
 [/prjmngr]
 
 [msgwin2]
-window=30030248,1,0,0,136,1357,39,696,136,1020,0,0,1
+window=54868392,1,0,0,136,1357,39,696,136,1020,0,0,1
 [/msgwin2]
 
 [msgwin1]
-window=30030248,1,0,0,136,1357,39,696,136,1020,0,0,0
+window=54868392,1,0,0,136,1357,39,696,136,1020,0,0,0
 [/msgwin1]
 
 [breakswin]
-window=30030248,1,0,0,136,1357,39,696,136,1020,0,0,2
+window=54868392,1,0,0,136,1357,39,696,136,1020,0,0,2
 hdrwidth0=200
 hdrwidth1=30
 hdrwidth2=80
@@ -157,7 +157,7 @@ font="Courier New",1,0,10,-13,-2147483640,0,0
 [/memwin2]
 
 [watch2win]
-window=30030248,1,0,0,136,1357,39,696,136,1020,0,0,3
+window=54868392,1,0,0,136,1357,39,696,136,1020,0,0,3
 hdrnamew=240,60,0
 font="Courier New",10
 hiresreadability=0
@@ -175,7 +175,7 @@ storednames="Main.runCelisti","Main.enabled"
 [/watch2win]
 
 [weblc]
-lastfile="NONAME1.txt"
+lastfile=""
 listwidth=121
 findhistory=""
 replacehistory=""
@@ -186,17 +186,17 @@ window=0,0,182,182,587,1152,400,245,587,1152,0,0,-1
 [/evalmodifdlg]
 
 [paneltexted]
-editor="XClip-Panel",1,0,1,1,1,1,5149714,1693968,218710880,1694360,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+editor="XClip-Panel",1,0,1,1,1,1,5149714,1693968,218711548,1694360,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 window=0,0,0,94,313,483,313,483,313,483,0,0,-1
 font="Lucida Console",11
 [/paneltexted]
 
 [ctrlswin]
-window=30063232,1,0,0,702,159,732,42,732,159,0,0,0
+window=54901376,1,0,0,702,159,732,42,732,159,0,0,0
 [/ctrlswin]
 
 [prjfileswin]
-window=30063232,1,0,0,702,159,732,100,732,159,0,0,1
+window=54901376,1,0,0,702,159,732,100,732,159,0,0,1
 filesheight=409
 relatedheight=218
 relatedcnt=3
@@ -206,7 +206,7 @@ relfile2="SendRoot\TecoApi.pub"
 [/prjfileswin]
 
 [Datalogger]
-window=30065428,0,0,0,702,1357,187,270,562,1365,0,0,0
+window=54903572,0,0,0,532,1357,187,270,562,1365,0,0,0
 [/Datalogger]
 
 [CFC_Editors]
@@ -224,7 +224,7 @@ window=0,0,695,273,317,233,317,233,317,233,0,0,-1
 [PlcNetManager]
 SortItems=1
 SortPlcs=1
-window=30063232,0,0,0,702,159,732,100,732,159,0,0,4
+window=54901376,0,0,0,702,159,732,167,732,159,0,0,4
 [/PlcNetManager]
 
 [SelectPLC]
@@ -232,8 +232,8 @@ IOSetupColW="200,190,123,72,72,72,64,140,"
 [/SelectPLC]
 
 [textsyneditor]
-editor="prgMain.ST",1,1,0,12,78,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
-window=30065428,1,0,0,532,1357,732,1536,732,1365,0,0,1
+editor="prgMain.ST",1,1,0,18,27,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
+window=54903572,1,0,0,532,1357,732,1536,732,1365,0,0,1
 localparams=0,1,1,1,1,30,0,80,1,2,1,0,0
 font="Courier New",10
 relay=0,0,0,0,0,"",0,0

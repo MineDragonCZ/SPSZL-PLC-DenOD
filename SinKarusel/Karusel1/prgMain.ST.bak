@@ -24,7 +24,7 @@ PROGRAM prgMain
          END_IF
        ;
        4:
-         //celist1 := vyrobekCelist1;
+         celist1 := vyrobekCelist1;
          celist2 := NOT(vyrobekCelist1);
        ;
        5:
@@ -43,8 +43,8 @@ PROGRAM prgMain
        1:
          zarazka := true;
          motorEnable := false;
-         stroj1HoreDole := true;
-         stroj2HoreDole := true;
+         //stroj1HoreDole := true;
+         //stroj2HoreDole := true;
          runCelisti := true;
        ;
        2:

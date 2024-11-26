@@ -1,0 +1,302 @@
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINCERVENELINKY\LINKAU\PRGMAIN.ST'
+
+#defpou prgMain
+  TON vyvrtaciDelayR,
+  TON vyvrtaciDelayL,
+  TON vyhazovaciDelayR,
+  TON vyhazovaciDelayL,
+  bool vyrobekVeVyhazovakuL,
+  bool vyrobekVeVyhazovakuR
+
+ 
+#srcfile 'C:\MOSAICAPP\SPSZL-PLC-DENOD\SINCERVENELINKY\LINKAU\PRGMAIN.ST'
+#pou prgMain
+#srcline 1 ;PROGRAM prgMain
+P     61
+prgMain_L0:
+ LINK 0
+#srcline 14 ;  vyhazovaciDelayL(IN := vyrobekVeVyhazovakuL, PT := t#1000ms);
+ LDX  vyrobekVeVyhazovakuL
+#debug bool vyrobekVeVyhazovakuL
+ WRX  vyhazovaciDelayL~IN
+#debug_left bool vyhazovaciDelayL~IN
+ LD   time 1000
+ WRX  vyhazovaciDelayL~PT
+#debug_left time vyhazovaciDelayL~PT
+ LEAX vyhazovaciDelayL
+ CAL  TON_L0
+#srcline 15 ;  IF vyhazovaciDelayL.Q THEN
+ LDX  vyhazovaciDelayL~Q
+#debug bool vyhazovaciDelayL.Q
+ JMC  prgMain_L1
+#srcline 16 ;     vyrobekVeVyhazovakuL := false;
+ LD   bool 0       ; false
+ WRX  vyrobekVeVyhazovakuL
+#debug_left bool vyrobekVeVyhazovakuL
+#srcline 17 ;     vyhodLVysun := true;
+ LD   bool -1       ; true
+ WR   bool vyhodLVysun
+#debug_left bool vyhodLVysun
+#srcline 18 ;     pasL := false;
+ LD   bool 0       ; false
+ WR   bool pasL
+#debug_left bool pasL
+#srcline 19 ;  END_IF
+prgMain_L1:
+#srcline 20 ;  
+#srcline 21 ;  vyhazovaciDelayR(IN := vyrobekVeVyhazovakuR, PT := t#1000ms);
+ LDX  vyrobekVeVyhazovakuR
+#debug bool vyrobekVeVyhazovakuR
+ WRX  vyhazovaciDelayR~IN
+#debug_left bool vyhazovaciDelayR~IN
+ LD   time 1000
+ WRX  vyhazovaciDelayR~PT
+#debug_left time vyhazovaciDelayR~PT
+ LEAX vyhazovaciDelayR
+ CAL  TON_L0
+#srcline 22 ;  IF vyhazovaciDelayR.Q THEN
+ LDX  vyhazovaciDelayR~Q
+#debug bool vyhazovaciDelayR.Q
+ JMC  prgMain_L3
+#srcline 23 ;     vyrobekVeVyhazovakuR := false;
+ LD   bool 0       ; false
+ WRX  vyrobekVeVyhazovakuR
+#debug_left bool vyrobekVeVyhazovakuR
+#srcline 24 ;     vyhodRVysun := true;
+ LD   bool -1       ; true
+ WR   bool vyhodRVysun
+#debug_left bool vyhodRVysun
+#srcline 25 ;     pasMR := false;
+ LD   bool 0       ; false
+ WR   bool pasMR
+#debug_left bool pasMR
+#srcline 26 ;     pasR := true;
+ LD   bool -1       ; true
+ WR   bool pasR
+#debug_left bool pasR
+#srcline 27 ;  END_IF
+prgMain_L3:
+#srcline 28 ;  
+#srcline 29 ;  vyvrtaciDelayR(IN := NOT cidloR2, PT := t#5000ms);
+ LD   bool cidloR2
+#debug bool cidloR2
+ NEG
+ WRX  vyvrtaciDelayR~IN
+#debug_left bool vyvrtaciDelayR~IN
+ LD   time 5000
+ WRX  vyvrtaciDelayR~PT
+#debug_left time vyvrtaciDelayR~PT
+ LEAX vyvrtaciDelayR
+ CAL  TON_L0
+#srcline 30 ;  IF vyvrtaciDelayR.Q THEN
+ LDX  vyvrtaciDelayR~Q
+#debug bool vyvrtaciDelayR.Q
+ JMC  prgMain_L5
+#srcline 31 ;     pasMR := true;
+ LD   bool -1       ; true
+ WR   bool pasMR
+#debug_left bool pasMR
+#srcline 32 ;     vyrobekVeVyhazovakuR := true;
+ LD   bool -1       ; true
+ WRX  vyrobekVeVyhazovakuR
+#debug_left bool vyrobekVeVyhazovakuR
+#srcline 33 ;     vrtakR := false;
+ LD   bool 0       ; false
+ WR   bool vrtakR
+#debug_left bool vrtakR
+#srcline 34 ;  END_IF
+prgMain_L5:
+#srcline 36 ;  vyvrtaciDelayL(IN := NOT cidloL3, PT := t#5000ms);
+ LD   bool cidloL3
+#debug bool cidloL3
+ NEG
+ WRX  vyvrtaciDelayL~IN
+#debug_left bool vyvrtaciDelayL~IN
+ LD   time 5000
+ WRX  vyvrtaciDelayL~PT
+#debug_left time vyvrtaciDelayL~PT
+ LEAX vyvrtaciDelayL
+ CAL  TON_L0
+#srcline 37 ;  IF vyvrtaciDelayL.Q THEN
+ LDX  vyvrtaciDelayL~Q
+#debug bool vyvrtaciDelayL.Q
+ JMC  prgMain_L7
+#srcline 38 ;     pasML := true;
+ LD   bool -1       ; true
+ WR   bool pasML
+#debug_left bool pasML
+#srcline 39 ;     pasMR := true;
+ LD   bool -1       ; true
+ WR   bool pasMR
+#debug_left bool pasMR
+#srcline 40 ;     vrtakL := false;
+ LD   bool 0       ; false
+ WR   bool vrtakL
+#debug_left bool vrtakL
+#srcline 41 ;  END_IF
+prgMain_L7:
+#srcline 42 ;  
+#srcline 43 ;  IF NOT cidloL1 THEN
+ LD   bool cidloL1
+#debug bool cidloL1
+ NEG
+ JMC  prgMain_L9
+#srcline 44 ;     pasL := true;
+ LD   bool -1       ; true
+ WR   bool pasL
+#debug_left bool pasL
+#srcline 45 ;     pasML := true;
+ LD   bool -1       ; true
+ WR   bool pasML
+#debug_left bool pasML
+#srcline 46 ;  END_IF
+prgMain_L9:
+#srcline 47 ;  IF NOT cidloL3 AND NOT vyvrtaciDelayL.Q THEN
+ LD   bool cidloL3
+#debug bool cidloL3
+ NEG
+ LDX  vyvrtaciDelayL~Q
+#debug bool vyvrtaciDelayL.Q
+ NEG
+ AND
+ JMC  prgMain_L11
+#srcline 48 ;     pasL := false;
+ LD   bool 0       ; false
+ WR   bool pasL
+#debug_left bool pasL
+#srcline 49 ;     pasML := false;
+ LD   bool 0       ; false
+ WR   bool pasML
+#debug_left bool pasML
+#srcline 50 ;     vrtakL := true;
+ LD   bool -1       ; true
+ WR   bool vrtakL
+#debug_left bool vrtakL
+#srcline 51 ;  END_IF
+prgMain_L11:
+#srcline 52 ;  IF NOT cidloR2 AND NOT vyvrtaciDelayR.Q THEN
+ LD   bool cidloR2
+#debug bool cidloR2
+ NEG
+ LDX  vyvrtaciDelayR~Q
+#debug bool vyvrtaciDelayR.Q
+ NEG
+ AND
+ JMC  prgMain_L13
+#srcline 53 ;     pasMR := false;
+ LD   bool 0       ; false
+ WR   bool pasMR
+#debug_left bool pasMR
+#srcline 54 ;     pasML := false;
+ LD   bool 0       ; false
+ WR   bool pasML
+#debug_left bool pasML
+#srcline 55 ;     vrtakR := true;
+ LD   bool -1       ; true
+ WR   bool vrtakR
+#debug_left bool vrtakR
+#srcline 56 ;  END_IF
+prgMain_L13:
+#srcline 57 ;  
+#srcline 58 ;  IF NOT cidloR1 THEN
+ LD   bool cidloR1
+#debug bool cidloR1
+ NEG
+ JMC  prgMain_L15
+#srcline 59 ;     pasR := false;
+ LD   bool 0       ; false
+ WR   bool pasR
+#debug_left bool pasR
+#srcline 60 ;  END_IF
+prgMain_L15:
+#srcline 61 ;  
+#srcline 62 ;  IF NOT cidloL2 THEN
+ LD   bool cidloL2
+#debug bool cidloL2
+ NEG
+ JMC  prgMain_L17
+#srcline 63 ;     vyrobekVeVyhazovakuL := true;
+ LD   bool -1       ; true
+ WRX  vyrobekVeVyhazovakuL
+#debug_left bool vyrobekVeVyhazovakuL
+#srcline 64 ;  END_IF
+prgMain_L17:
+#srcline 65 ;  
+#srcline 66 ;  
+#srcline 67 ;  
+#srcline 68 ;  
+#srcline 69 ;  
+#srcline 70 ;  
+#srcline 71 ;  
+#srcline 72 ;  // protections
+#srcline 73 ;  IF vyhodLVysunut AND vyhodLVysun THEN
+ LD   bool vyhodLVysunut
+#debug bool vyhodLVysunut
+ LD   bool vyhodLVysun
+#debug bool vyhodLVysun
+ AND
+ JMC  prgMain_L19
+#srcline 74 ;     vyhodLVysun := false;
+ LD   bool 0       ; false
+ WR   bool vyhodLVysun
+#debug_left bool vyhodLVysun
+#srcline 75 ;     vyhodLZasun := true;
+ LD   bool -1       ; true
+ WR   bool vyhodLZasun
+#debug_left bool vyhodLZasun
+#srcline 76 ;  END_IF
+prgMain_L19:
+#srcline 77 ;  IF vyhodRVysunut AND vyhodRVysun THEN
+ LD   bool vyhodRVysunut
+#debug bool vyhodRVysunut
+ LD   bool vyhodRVysun
+#debug bool vyhodRVysun
+ AND
+ JMC  prgMain_L21
+#srcline 78 ;     vyhodRVysun := false;
+ LD   bool 0       ; false
+ WR   bool vyhodRVysun
+#debug_left bool vyhodRVysun
+#srcline 79 ;     vyhodRZasun := true;
+ LD   bool -1       ; true
+ WR   bool vyhodRZasun
+#debug_left bool vyhodRZasun
+#srcline 80 ;  END_IF
+prgMain_L21:
+#srcline 81 ;  IF vyhodLZasunut AND vyhodLZasun THEN
+ LD   bool vyhodLZasunut
+#debug bool vyhodLZasunut
+ LD   bool vyhodLZasun
+#debug bool vyhodLZasun
+ AND
+ JMC  prgMain_L23
+#srcline 82 ;     vyhodLZasun := false;
+ LD   bool 0       ; false
+ WR   bool vyhodLZasun
+#debug_left bool vyhodLZasun
+#srcline 83 ;  END_IF
+prgMain_L23:
+#srcline 84 ;  IF vyhodRZasunut AND vyhodRZasun THEN
+ LD   bool vyhodRZasunut
+#debug bool vyhodRZasunut
+ LD   bool vyhodRZasun
+#debug bool vyhodRZasun
+ AND
+ JMC  prgMain_L25
+#srcline 85 ;     vyhodRZasun := false;
+ LD   bool 0       ; false
+ WR   bool vyhodRZasun
+#debug_left bool vyhodRZasun
+#srcline 86 ;  END_IF
+prgMain_L25:
+#srcline 87 ;END_PROGRAM
+ ULNK
+RET
+E     61
+#endpou 
+
+
+
+ 
+
+#srcfile ''

@@ -1,9 +1,9 @@
 [Pos0]
 ModulID=1014
 ModuleName=
-ModuleFileName=
+ModuleFileName=panel_R0_P0
 RemUnit=0
-Verze= B0H0500
+Verze= 97H0500
 ModulFormat=1
 ScriptFormat=1
 XPosE2=7500,0|7510,0|7520,0|7620,0|7630,0|7640,0|7650,0|
@@ -71,7 +71,7 @@ ETH0_LogIndex=1
 ETH0_IP0=192
 ETH0_IP1=168
 ETH0_IP2=102
-ETH0_IP3=43
+ETH0_IP3=40
 ETH0_Mask0=255
 ETH0_Mask1=255
 ETH0_Mask2=0

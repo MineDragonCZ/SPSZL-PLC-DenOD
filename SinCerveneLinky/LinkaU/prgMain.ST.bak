@@ -1,0 +1,88 @@
+PROGRAM prgMain
+  VAR
+  
+     vyvrtaciDelayR : TON;
+     vyvrtaciDelayL : TON;
+     vyhazovaciDelayR : TON;
+     vyhazovaciDelayL : TON;
+     
+     
+     vyrobekVeVyhazovakuL : BOOL;
+     vyrobekVeVyhazovakuR : BOOL;
+  END_VAR
+  
+  vyhazovaciDelayL(IN := vyrobekVeVyhazovakuL, PT := t#1000ms);
+  IF vyhazovaciDelayL.Q THEN
+     vyrobekVeVyhazovakuL := false;
+     vyhodLVysun := true;
+     pasL := false;
+  END_IF
+  
+  vyhazovaciDelayR(IN := vyrobekVeVyhazovakuR, PT := t#1000ms);
+  IF vyhazovaciDelayR.Q THEN
+     vyrobekVeVyhazovakuR := false;
+     vyhodRVysun := true;
+     pasMR := false;
+     pasR := true;
+  END_IF
+  
+  vyvrtaciDelayR(IN := NOT cidloR2, PT := t#1000ms);
+  IF vyvrtaciDelayR.Q THEN
+     pasMR := true;
+     vyrobekVeVyhazovakuR := true;
+     vrtakR := false;
+  END_IF
+
+  vyvrtaciDelayL(IN := NOT cidloL3, PT := t#1000ms);
+  IF vyvrtaciDelayL.Q THEN
+     pasML := true;
+     pasMR := true;
+     vrtakL := false;
+  END_IF
+  
+  IF NOT cidloL1 THEN
+     pasL := true;
+     pasML := true;
+  END_IF
+  IF NOT cidloL3 AND NOT vyvrtaciDelayL.Q THEN
+     pasL := false;
+     pasML := false;
+     vrtakL := true;
+  END_IF
+  IF NOT cidloR2 AND NOT vyvrtaciDelayR.Q THEN
+     pasMR := false;
+     pasML := false;
+     vrtakR := true;
+  END_IF
+  
+  IF NOT cidloR1 THEN
+     pasR := false;
+  END_IF
+  
+  IF NOT cidloL2 THEN
+     vyrobekVeVyhazovakuL := true;
+  END_IF
+  
+  
+  
+  
+  
+  
+  
+  // protections
+  IF vyhodLVysunut AND vyhodLVysun THEN
+     vyhodLVysun := false;
+     vyhodLZasun := true;
+  END_IF
+  IF vyhodRVysunut AND vyhodRVysun THEN
+     vyhodRVysun := false;
+     vyhodRZasun := true;
+  END_IF
+  IF vyhodLZasunut AND vyhodLZasun THEN
+     vyhodLZasun := false;
+  END_IF
+  IF vyhodRZasunut AND vyhodRZasun THEN
+     vyhodRZasun := false;
+  END_IF
+END_PROGRAM
+
